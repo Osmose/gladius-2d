@@ -1,0 +1,25 @@
+define( function( require ) {
+
+  var path = require( "path" );
+
+  return {
+    onCreate: {
+      run: function( d, v, namedArgs, appName ) {
+        var extensionName = path.basename( appName );
+
+        v.mv( "src/extension.js", "src/" + extensionName + ".js" );
+
+        [
+          "package.json",
+          "tools/build.js",
+          "tools/wrap.start"
+        ].forEach( function( fileName ) {
+          v.write( fileName, v.template( v.read( fileName ), { "extension": extensionName } ) );
+        });
+        
+        d.resolve();
+      }
+    }
+  };
+
+});

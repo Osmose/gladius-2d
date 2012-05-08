@@ -1,0 +1,6 @@
+{
+  "name": "{extension}",
+  "volo": {
+    "baseUrl": "lib"
+  }
+}
