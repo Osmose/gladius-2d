@@ -16,6 +16,10 @@ define( function( require ) {
         ].forEach( function( fileName ) {
           v.write( fileName, v.template( v.read( fileName ), { "extension": extensionName } ) );
         });
+
+        console.log( namedArgs );
+
+        // v.command( "add", "gladiusjs/gladius-core/wip-core#")
         
         d.resolve();
       }
