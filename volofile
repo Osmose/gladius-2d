@@ -17,10 +17,10 @@ define( function( require ) {
           v.write( fileName, v.template( v.read( fileName ), { "extension": extensionName } ) );
         });
 
-        v.command( "add", "gladiusjs/gladius-core/wip-core#src/base" );
-        v.command( "add", "gladiusjs/gladius-core/wip-core#src/common" );
-        
-        d.resolve();
+        d.resolve(v.sequence([
+            [v, 'command', 'add', 'gladiusjs/gladius-core/wip-core#src/base'],
+            [v, 'command', 'add', 'gladiusjs/gladius-core/wip-core#src/common'],
+        ]));
       }
     }
   };
