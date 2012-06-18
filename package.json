@@ -1,6 +1,3 @@
 {
-  "name": "{extension}",
-  "volo": {
-    "baseUrl": "lib"
-  }
+  "name": "gladius-2d"
 }

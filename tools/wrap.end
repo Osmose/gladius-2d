@@ -1,7 +1,7 @@
 
-  var extension = require( "{extension}" );
+  var extension = require( "../src/gladius-2d" );
 
   return extension;
-  
+
 }));
 

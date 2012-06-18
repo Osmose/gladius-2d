@@ -2,6 +2,7 @@
 Copyright (c) 2011-2012, Mozilla Foundation
 Copyright (c) 2011-2012, Alan Kligman
 Copyright (c) 2011-2012, Robert Richter
+Copyright (c) 2012, Michael Kelly
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -20,12 +21,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     module.exports = factory();
   } else if (typeof define === "function" && define.amd) {
     // AMD. Register as an anonymous module.
-    define( factory );
+    define( 'gladius-2d', factory );
   } else if( root.Gladius ) {
     // Browser globals
-    root.Gladius["{extension}"] = factory();
+    root.Gladius["gladius-2d"] = factory();
   } else {
-    throw new Error( "failed to load {extension}; depends on Gladius" );
+    throw new Error( "failed to load gladius-2d; depends on Gladius" );
   }
 
 }( this, function() {
