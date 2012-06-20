@@ -2,21 +2,22 @@ define(function(require) {
     var Component = require('base/component');
     var extend = require('common/extend');
 
-    function g2d(service, options) {
-        Component.call(this, '2d', service);
+    function Sprite(service, options) {
+        Component.call(this, '2d', service, ['Transform']);
 
         options = options || {};
-        this.x = options.x || 0;
-        this.y = options.y || 0;
         this.graphic = options.graphic || null;
     }
-    g2d.prototype = Object.create(Component.prototype);
-    g2d.prototype.constructor = g2d;
+    Sprite.prototype = Object.create(Component.prototype);
+    Sprite.prototype.constructor = Sprite;
 
-    extend(g2d.prototype, {
+    extend(Sprite.prototype, {
         onRender: function(event) {
             var data = event.data;
-            this.graphic.render(data.ctx, this.x, this.y);
+            var transform = this.owner.findComponent('Transform');
+            var pos = transform.position;
+
+            this.graphic.render(data.ctx, pos[0], pos[1]);
         },
 
         onEntitySpaceChanged: function(event) {
@@ -51,5 +52,5 @@ define(function(require) {
         }
     });
 
-    return g2d;
+    return Sprite;
 });

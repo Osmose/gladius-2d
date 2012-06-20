@@ -6,7 +6,7 @@ define(function(require) {
             renderer: {
                 service: require('src/services/renderer'),
                 components: {
-                    g2d: require('src/components/g2d')
+                    Sprite: require('src/components/sprite')
                 },
                 resources: {}
             }
@@ -15,5 +15,5 @@ define(function(require) {
 		resources: {
             Graphic: require('src/resources/graphic')
         }
-	})
+	});
 });
